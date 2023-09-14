@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\bannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +20,12 @@ Route::get('/', function () {
 });
 
 Auth::routes(['register'=>false]);
-
+//admin dashboard
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
  Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
       Route::get('/',[AdminController::class,'admin'])->name('admin');
+
+   // banner serction
+ Route::resource('banner', bannerController::class);
  });
+

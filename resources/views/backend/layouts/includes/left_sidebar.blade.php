@@ -8,17 +8,16 @@
       </li>
        {{-- Banner section --}}
       <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#banner" aria-expanded="false" aria-controls="banner">
+        <a class="nav-link" data-toggle="collapse" href="#bannersection" aria-expanded="false" aria-controls="bannersection">
           <i class="icon-picture"></i>
-          <span class="menu-title ml-auto">Banner</span>
+          <span class="menu-title ml-auto">Banner section</span>
           <i class="menu-arrow"></i>
         </a>
-        <div class="collapse" id="banner">
+        <div class="collapse" id="bannersection">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-          </ul>
+            <li class="nav-item"><a class="nav-link" href="{{route('banner.index')}}">All Banner</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{route('banner.create')}}">Create Banner</a></li>
+            </ul>
         </div>
       </li>
       {{-- category section --}}
@@ -30,9 +29,9 @@
         </a>
         <div class="collapse" id="category">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+            <li class="nav-item"> <a class="nav-link" href="#">Buttons</a></li>
+            <li class="nav-item"> <a class="nav-link" href="#">Dropdowns</a></li>
+            <li class="nav-item"> <a class="nav-link" href="#">Typography</a></li>
           </ul>
         </div>
       </li>

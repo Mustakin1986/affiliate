@@ -92,5 +92,36 @@
       <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
         <span class="icon-menu"></span>
       </button>
+       <div class="col-1 col-xl-1">
+        <div class="justify-content-end d-flex">
+         <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
+           <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button" id="dropdownMenuDate2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <i class="mdi"></i><span><a id="navbarDropdown" class="" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }}
+            </a></span>
+           </button>
+           <div class="dropdown-menu dropdown-menu-right"aria-labelledby="dropdownMenuDate2">
+             <a class="dropdown-item" href="#">
+                <li class="nav-item dropdown">
+                    <div class="dropdown-item dropdown-menu-end" aria-labelledby="">
+                        <a class="" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form"action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+             </a>
+             <a class="dropdown-item" href="#">March - June</a>
+             <a class="dropdown-item" href="#">June - August</a>
+             <a class="dropdown-item" href="#">August - November</a>
+           </div>
+         </div>
+        </div>
+       </div>
     </div>
   </nav>

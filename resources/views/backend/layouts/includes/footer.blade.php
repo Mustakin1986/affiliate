@@ -19,3 +19,5 @@
 <script src="{{asset('backend/js/dashboard.js')}}"></script>
 <script src="{{asset('backend/js/Chart.roundedBarCharts.js')}}"></script>
 <!-- End custom js for this page-->
+
+@yield('script')
