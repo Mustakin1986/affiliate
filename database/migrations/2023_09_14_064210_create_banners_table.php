@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('slug');
             $table->mediumText('description')->nullable();
             $table->string('photo');
-            $table->enum('status',['active','inactive'])-> default('inactive');
-            $table->enum('condition',['banner','promo'])-> default('banner');
+            $table->boolean('status')->default(0);
+            $table->boolean('condition')->default(0);
             $table->timestamps();
         });
     }

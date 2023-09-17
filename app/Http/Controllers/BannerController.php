@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use Illuminate\Http\Request;
 
 class BannerController extends Controller
@@ -11,7 +12,9 @@ class BannerController extends Controller
      */
     public function index()
     {
-        return view('backend.banner.index');
+        $banner = Banner::all();
+        return view('backend.banner.index',compact('banner'));
+
     }
 
     /**
@@ -27,7 +30,32 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $this->validate($request,[
+        //         'title'=>'string|required',
+        //         'description'=>'nullable',
+        //         'photo'=>'string|required',
+        //         'condition'=>'boolean|nullable',
+        //         'status'=>'boolean|nullable',
+
+        // ]);
+
+        {
+            if($request->file('photo')){
+                $name = time().'.'.$request->photo->extension();
+                $request->photo->move(public_path('/backend/Banner/'), $name);
+             }
+
+            $banner = new Banner();
+            $banner->title = $request->title;
+            $banner->slug = str_replace(' ','_',strtolower($request->title));
+            $banner->description = $request->description;
+            $banner->status = $request->status;
+            $banner->condition = $request->condition;
+            $banner->photo = $name;
+            $banner->save();
+            return redirect()->back()->with('success','Banner has be created');
+        }
+
     }
 
     /**
