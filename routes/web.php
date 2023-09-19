@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\bannerController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +27,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
  Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
       Route::get('/',[AdminController::class,'admin'])->name('admin');
 
-   // banner serction
+   // banner section
  Route::resource('banner', bannerController::class);
+   // Category section
+ Route::resource('category', CategoryController::class);
+ // brand Section
+ Route::resource('brand', BrandController::class);
  });
 

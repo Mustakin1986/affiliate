@@ -5,11 +5,11 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">All Banner List</h4>
+                        <span> <a href="{{ route('category.create') }}">All Category</a></span>
                         <p class="card-description">
                         </p>
                         <div class="table-responsive pt-2">
-                            <table class="table table-bordered" id="bannerTable">
+                            <table class="table table-bordered">
                                 <thead>
                                     <tr style="text-align: center">
                                         <th>
@@ -39,20 +39,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($banner as $row)
+                                    @foreach ($categories as $row)
                                         <tr style="text-align:center">
                                             <td>
                                                 {{ $loop->index + 1 }}
                                             </td>
                                             <td>
-                                                <img src="{{ asset('/backend/banner/' . $row->photo) }}" height="50"
+                                                <img src="{{ asset('/backend/Category/' . $row->photo) }}" height="50"
                                                     width="50" />
                                             </td>
                                             <td>
                                                 {{ $row->title }}
                                             </td>
                                             <td>
-                                                {{ $row->description }}
+                                                {{ $row->summary }}
                                             </td>
                                             <td>
                                                 @if ($row->status == 1)
@@ -63,14 +63,6 @@
                                                     <span class="badge badge-danger">
                                                         Inactive
                                                     </span>
-                                                @endif
-                                            </td>
-
-                                            <td>
-                                                @if ($row->condition == 1)
-                                                    <span class="badge badge-success">Banner</span>
-                                                @else
-                                                    <span class="badge badge-primary">Promo</span>
                                                 @endif
                                             </td>
                                             <td>
@@ -101,8 +93,7 @@
     </div>
 @endsection
 @section('script')
-    let table = new DataTable('#bannerTable');
     $(document).ready( function () {
-    $('#table').DataTable();
+    $('#myTable').DataTable();
     } );
 @endsection
