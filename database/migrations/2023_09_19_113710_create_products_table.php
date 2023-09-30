@@ -23,15 +23,15 @@ return new class extends Migration
             $table->float('offer_price');
             $table->float('discount');
             $table->string('size');
-            $table->enum('condition',['new','popular','winter'])->default('new');
-            $table->enum('status',['active','inactive'])->default('active');
+            $table->boolean('condition')->default('1');
+            $table->boolean('status')->default('1');
             $table->unsignedBigInteger('brand_id');
             $table->unsignedBigInteger('cat_id');
             $table->unsignedBigInteger('vendor_id')->nullable();
 
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->foreign('cat_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('vendor_id')->references('id')->on('vendors')->onDelete('SET NULL');
+            // $table->foreign('vendor_id')->references('id')->on('vendors')->onDelete('SET NULL');
             $table->timestamps();
         });
     }
